@@ -1,0 +1,26 @@
+/* carousel.module.css veya global.css'e ekle */
+.carouselArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10rem;
+  color: white;
+  cursor: pointer;
+  z-index: 30;
+  padding: 0.5rem;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+  opacity: 0.5;
+}
+
+.carouselArrow:hover {
+  transform: translateY(-50%) scale(1.1);
+  opacity: 1;
+}
+
+.leftArrow {
+  left: 1rem;
+}
+
+.rightArrow {
+  right: 1rem;
+}
