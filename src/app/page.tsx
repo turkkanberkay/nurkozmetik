@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Carousel from "../components/Carousel";
 import Brands from "@/components/Brands";
 import ClickableGrid from "@/components/ClickableGrid";
