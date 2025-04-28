@@ -24,3 +24,19 @@
 .rightArrow {
   right: 1rem;
 }
+
+.carouselDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background-color: gray;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5); /* <<< Burayı ekledik */
+}
+
+.carouselDot.active {
+  background-color: white;
+  transform: scale(1.2);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.7); /* Aktif olunca gölgeyi biraz artırdık */
+}
