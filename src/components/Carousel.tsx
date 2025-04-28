@@ -5,7 +5,6 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { slides } from '@/constants/data';
 import '../styles/carousel.css';
 
-
 export default function Carousel() {
   const [current, setCurrent] = useState(0);
 
@@ -15,6 +14,10 @@ export default function Carousel() {
 
   const prevSlide = () => {
     setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrent(index);
   };
 
   useEffect(() => {
@@ -28,11 +31,11 @@ export default function Carousel() {
   return (
     <div className="relative w-full h-[400px] overflow-hidden">
       <FaChevronLeft
-        className={`carouselArrow leftArrow`}
+        className="carouselArrow leftArrow"
         onClick={prevSlide}
       />
       <FaChevronRight
-        className={`carouselArrow rightArrow`}
+        className="carouselArrow rightArrow"
         onClick={nextSlide}
       />
 
@@ -51,6 +54,17 @@ export default function Carousel() {
           />
         </a>
       ))}
+
+      {/* Noktalar */}
+      <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`carouselDot ${current === index ? 'active' : ''}`}
+          />
+        ))}
+      </div>
     </div>
   );
 }
