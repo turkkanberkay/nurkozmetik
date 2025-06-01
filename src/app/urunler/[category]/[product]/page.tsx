@@ -1,11 +1,13 @@
+// src/app/urunler/[category]/[product]/page.tsx
+
 import { products } from "@/constants/products";
 import VariantCard from "@/components/VariantCard";
 
-interface Props {
+interface PageProps {
   params: { category: string; product: string };
 }
 
-export default function ProductDetailPage({ params }: Props) {
+export default function ProductDetailPage({ params }: PageProps) {
   const product = products.find(
     (item) =>
       item.category === params.category && item.slug === params.product
@@ -15,9 +17,8 @@ export default function ProductDetailPage({ params }: Props) {
     return <div className="text-center py-16 text-xl">Ürün bulunamadı.</div>;
   }
 
-  // Ürün objesinde backgroundColor ve backgroundImage varsa kullan
   const backgroundColor = product.backgroundColor || "#f0f4ff";
-  const backgroundImage = product.backgroundImage; // opsiyonel
+  const backgroundImage = product.backgroundImage;
 
   return (
     <div
@@ -30,7 +31,6 @@ export default function ProductDetailPage({ params }: Props) {
       }}
     >
       <div className="flex flex-col gap-8 w-full">
-        {/* Varyantlar varsa alt alta göster */}
         {product.variants && product.variants.length > 0 ? (
           <div className="flex flex-col w-full items-center">
             {product.variants.map((variant, idx) => (
@@ -39,9 +39,10 @@ export default function ProductDetailPage({ params }: Props) {
                 name={variant.name}
                 image={variant.image}
                 description={variant.description}
-                background={variant.background || (idx % 2 === 0 ? "#f8faff" : "#f0f4ff")}
+                background={
+                  variant.background || (idx % 2 === 0 ? "#f8faff" : "#f0f4ff")
+                }
                 className="w-full"
-                // ...diğer props...
               />
             ))}
           </div>
@@ -51,11 +52,9 @@ export default function ProductDetailPage({ params }: Props) {
             image={product.image}
             background={product.backgroundColor || "#fddaff"}
             className="w-full"
-            // ...diğer props...
           />
         )}
       </div>
     </div>
   );
 }
-
