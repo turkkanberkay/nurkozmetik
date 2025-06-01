@@ -1,0 +1,58 @@
+
+        .container {
+          background: #f0f4ff;
+          color: #333;
+          margin: auto;
+          padding: 2rem;
+        }
+        .headline {
+          font-size: 1.1rem;
+          margin-bottom: 1rem;
+          color: #0056b3;
+        }
+        .title {
+          font-size: 2.5rem;
+          font-weight: bold;
+          margin-bottom: 1rem;
+          color: #0056b3;
+
+        }
+        .link {
+          display: inline-block;
+          margin-bottom: 2rem;
+          color: #0070f3;
+          text-decoration: underline;
+        }
+        .section {
+          margin-bottom: 3rem;
+        }
+        .subtitle {
+          font-size: 1.8rem;
+          margin-bottom: 1rem;
+          color: #0056b3;
+        }
+        .service-list {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 1.5rem;
+        }
+        .service-item h4 {
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+        }
+        .service-item p {
+          font-size: 1rem;
+          color: #666;
+        }
+        .product-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+          gap: 1rem;
+        }
+        .product-item {
+          background: #f8f8f8;
+          padding: 0.75rem 1rem;
+          border-radius: 8px;
+          text-align: center;
+          font-size: 0.95rem;
+        }

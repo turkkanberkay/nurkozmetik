@@ -60,3 +60,32 @@ export const items = [
   { src: "/grid/item5.jpg", title: "Item 5", link: "/item5" },
   { src: "/grid/item6.jpg", title: "Item 6", link: "/item6" },
 ];
+
+export const showcaseCategories = [
+  {
+    name: "Cilt Bakım",
+    image: "/grid/item1.jpg",
+    url: "/urunler/cilt-bakim",
+  },
+  {
+    name: "Vücut Bakım",
+    image: "/grid/item3.png",
+    url: "/urunler/vucut-bakim",
+  },
+  {
+    name: "Saç Bakım",
+    image: "/grid/item4.jpg",
+    url: "/urunler/sac-bakim",
+  },
+  {
+    name: "Kişisel Bakım",
+    image: "/grid/item6.jpg",
+    url: "/urunler/kisisel-bakim",
+  },
+  {
+    name: "Tıbbi Cihaz",
+    image: "/grid/item5.jpg",
+    url: "/urunler/tibbi-cihaz",
+  },
+  
+];

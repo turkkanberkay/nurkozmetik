@@ -1,11 +1,16 @@
 import { brands } from "@/constants/data";
 import Image from "next/image";
 
+interface BrandsProps {
+  showTitle?: boolean;
+}
 
-export default function Brands() {
+export default function Brands({ showTitle = true }: BrandsProps) {
   return (
     <section className="text-center py-16 bg-[#f8fcff]">
-      <h5 className="text-2xl font-bold text-[#39404a] mb-12">Markalarımız</h5>
+      {showTitle && (
+        <h5 className="text-2xl font-bold text-[#39404a] mb-12">Markalarımız</h5>
+      )}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-6xl mx-auto">
         {brands.map((brand, index) => (
           <div

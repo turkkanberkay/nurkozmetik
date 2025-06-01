@@ -1,0 +1,80 @@
+.showcaseWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 48px 0;
+}
+
+.showcaseCard {
+  display: flex;
+  align-items: flex-start; /* üstten hizalama */
+  justify-content: space-between; /* resimleri sağa taşır */
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 32px rgba(34,51,108,0.08);
+  padding: 40px 56px;
+  min-width: 1000px; /* genişlik artırıldı */
+  gap: 56px;
+}
+
+.categoryList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.categoryItem {
+  padding: 10px 24px;
+  border-radius: 12px;
+  background: transparent;
+  color: #4b555a;
+  font-weight: 400;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s, font-size 0.25s;
+}
+
+.categoryItem.active {
+  background: #f0f4ff;
+  color: #22336c;
+  font-weight: 700;
+  box-shadow: 0 2px 12px rgba(34,51,108,0.06);
+}
+
+.imageWrapper {
+  min-width: 360px;
+  min-height: 360px;
+  display: flex;
+  align-items: flex-start; /* üstten hizalama */
+  justify-content: center;
+  position: relative;
+  align-self: flex-start; /* kart içinde yukarıda */
+  margin-top: 0; /* isterseniz biraz margin-top ekleyebilirsiniz */
+  margin-left: auto; /* resmi sağa taşır */
+}
+
+.categoryImage {
+  width: 360px;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(34,51,108,0.10);
+  background: #e6eaf7;
+  transition: opacity 0.35s, transform 0.35s;
+}
+
+.fadeIn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fadeOut {
+  opacity: 0;
+  transform: scale(0.96);
+}
