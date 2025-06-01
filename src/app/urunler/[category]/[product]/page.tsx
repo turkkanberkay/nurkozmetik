@@ -1,7 +1,7 @@
 import { products } from "@/constants/products";
 import VariantCard from "@/components/VariantCard";
 
-export default function ProductDetailPage({
+export default async function ProductDetailPage({
   params,
 }: {
   params: { category: string; product: string };
