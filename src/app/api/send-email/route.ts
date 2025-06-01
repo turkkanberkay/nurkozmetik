@@ -37,11 +37,12 @@ Mesaj: ${data.message || ''}
     });
 
     return NextResponse.json({ success: true });
-  } catch (error: any) {
+  } catch (error: unknown) {
     // Hata detayını logla ve döndür
+    let errorMessage = 'Mail gönderilirken bir hata oluştu.';
     console.error('Mail gönderme hatası:', error);
     return NextResponse.json(
-      { success: false, error: 'Mail gönderilemedi.', detail: error?.message || error },
+      { success: false, error: 'Mail gönderilemedi.', detail: errorMessage || error },
       { status: 500 }
     );
   }
