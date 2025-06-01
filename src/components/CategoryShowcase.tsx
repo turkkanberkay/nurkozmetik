@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import "../../src/styles/categoryshowcase.css";
 import { showcaseCategories } from "@/constants/data";
+import Image from "next/image";
 
 
 const AUTO_CHANGE_INTERVAL = 3000; // ms
@@ -63,11 +64,13 @@ const CategoryShowcase = () => {
           ))}
         </ul>
         <div className="imageWrapper">
-          <img
+          <Image
             key={showcaseCategories[currentIndex].image}
             src={showcaseCategories[currentIndex].image}
             alt={showcaseCategories[currentIndex].name}
             className={`categoryImage ${fade ? "fadeIn" : "fadeOut"}`}
+            width={400}
+            height={300}
           />
         </div>
       </div>

@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { slides } from '@/constants/data';
+import Image from "next/image";
+
 import '../styles/carousel.css';
 
 export default function Carousel() {
@@ -47,8 +49,10 @@ export default function Carousel() {
             index === current ? 'opacity-100 z-10' : 'opacity-0 z-0'
           }`}
         >
-          <img
+          <Image
             src={slide.src}
+            width={1920}  
+            height={400}
             alt={`Slide ${index}`}
             className="object-cover w-full h-full"
           />
