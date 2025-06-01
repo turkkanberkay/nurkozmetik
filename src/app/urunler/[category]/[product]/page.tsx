@@ -1,6 +1,5 @@
 import { products } from "@/constants/products";
 import VariantCard from "@/components/VariantCard";
-import Image from "next/image";
 
 interface Props {
   params: { category: string; product: string };
