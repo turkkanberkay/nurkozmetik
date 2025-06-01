@@ -4,21 +4,22 @@ import { products } from "@/constants/products";
 import VariantCard from "@/components/VariantCard";
 
 interface PageProps {
-  params: { category: string; product: string };
+  params: Promise<{ category: string; product: string }>;
 }
 
-export default function ProductDetailPage({ params }: PageProps) {
-  const product = products.find(
-    (item) =>
-      item.category === params.category && item.slug === params.product
+export default async function ProductDetailPage({ params }: PageProps) {
+  const { category, product } = await params;
+
+  const selectedProduct = products.find(
+    (item) => item.category === category && item.slug === product
   );
 
-  if (!product) {
+  if (!selectedProduct) {
     return <div className="text-center py-16 text-xl">Ürün bulunamadı.</div>;
   }
 
-  const backgroundColor = product.backgroundColor || "#f0f4ff";
-  const backgroundImage = product.backgroundImage;
+  const backgroundColor = selectedProduct.backgroundColor || "#f0f4ff";
+  const backgroundImage = selectedProduct.backgroundImage;
 
   return (
     <div
@@ -31,9 +32,9 @@ export default function ProductDetailPage({ params }: PageProps) {
       }}
     >
       <div className="flex flex-col gap-8 w-full">
-        {product.variants && product.variants.length > 0 ? (
+        {selectedProduct.variants && selectedProduct.variants.length > 0 ? (
           <div className="flex flex-col w-full items-center">
-            {product.variants.map((variant, idx) => (
+            {selectedProduct.variants.map((variant, idx) => (
               <VariantCard
                 key={variant.name}
                 name={variant.name}
@@ -48,9 +49,9 @@ export default function ProductDetailPage({ params }: PageProps) {
           </div>
         ) : (
           <VariantCard
-            name={product.name}
-            image={product.image}
-            background={product.backgroundColor || "#fddaff"}
+            name={selectedProduct.name}
+            image={selectedProduct.image}
+            background={selectedProduct.backgroundColor || "#fddaff"}
             className="w-full"
           />
         )}

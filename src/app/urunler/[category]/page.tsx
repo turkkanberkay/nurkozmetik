@@ -3,13 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface Props {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 }
 
-export default function CategoryPage({ params }: Props) {
-  const filtered = products.filter(
-    (item) => item.category === params.category
-  );
+export default async function CategoryPage({ params }: Props) {
+  const { category } = await params;
+
+  const filtered = products.filter((item) => item.category === category);
 
   return (
     <div className="w-full min-h-screen bg-[#f0f4ff] py-8">
@@ -17,7 +17,7 @@ export default function CategoryPage({ params }: Props) {
         {filtered.map((item) => (
           <Link
             key={item.slug}
-            href={`/urunler/${params.category}/${item.slug}`}
+            href={`/urunler/${category}/${item.slug}`}
             className="flex flex-col items-center bg-white rounded-xl shadow p-4 hover:shadow-lg transition"
           >
             <Image
