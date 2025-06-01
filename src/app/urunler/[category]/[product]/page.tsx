@@ -1,11 +1,11 @@
 import { products } from "@/constants/products";
 import VariantCard from "@/components/VariantCard";
 
-interface Props {
+export default function ProductDetailPage({
+  params,
+}: {
   params: { category: string; product: string };
-}
-
-export default function ProductDetailPage({ params }: Props) {
+}) {
   const product = products.find(
     (item) =>
       item.category === params.category && item.slug === params.product
@@ -39,7 +39,10 @@ export default function ProductDetailPage({ params }: Props) {
                 name={variant.name}
                 image={variant.image}
                 description={variant.description}
-                background={variant.background || (idx % 2 === 0 ? "#f8faff" : "#f0f4ff")}
+                background={
+                  variant.background ||
+                  (idx % 2 === 0 ? "#f8faff" : "#f0f4ff")
+                }
                 className="w-full"
                 // ...diğer props...
               />
